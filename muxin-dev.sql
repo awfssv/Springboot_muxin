@@ -1,10 +1,23 @@
-#Java仿微信全栈 高性能后台+移动客户端  
+/*
+Navicat MariaDB Data Transfer
 
-### 前端：MUI H5+ 后端：Springboot netty mybatis  
+Source Server         : .
+Source Server Version : 100122
+Source Host           : localhost:3306
+Source Database       : muxin-dev
 
-### 数据库设计
-> Table structure for chat_msg
-```sql
+Target Server Type    : MariaDB
+Target Server Version : 100122
+File Encoding         : 65001
+
+Date: 2018-07-07 15:39:42
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for chat_msg
+-- ----------------------------
 DROP TABLE IF EXISTS `chat_msg`;
 CREATE TABLE `chat_msg` (
   `id` varchar(64) NOT NULL,
@@ -15,9 +28,14 @@ CREATE TABLE `chat_msg` (
   `create_time` datetime NOT NULL COMMENT '发送请求的事件',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-```
-> Table structure for friends_request
-```sql
+
+-- ----------------------------
+-- Records of chat_msg
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for friends_request
+-- ----------------------------
 DROP TABLE IF EXISTS `friends_request`;
 CREATE TABLE `friends_request` (
   `id` varchar(64) NOT NULL,
@@ -26,9 +44,14 @@ CREATE TABLE `friends_request` (
   `request_date_time` datetime NOT NULL COMMENT '发送请求的事件',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-```
-> Table structure for my_friends
-```sql
+
+-- ----------------------------
+-- Records of friends_request
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for my_friends
+-- ----------------------------
 DROP TABLE IF EXISTS `my_friends`;
 CREATE TABLE `my_friends` (
   `id` varchar(64) NOT NULL,
@@ -37,9 +60,14 @@ CREATE TABLE `my_friends` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `my_user_id` (`my_user_id`,`my_friend_user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-```
-> Table structure for users
-```sql
+
+-- ----------------------------
+-- Records of my_friends
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` varchar(64) NOT NULL,
@@ -54,4 +82,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-```
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
