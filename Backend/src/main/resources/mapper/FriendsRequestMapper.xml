@@ -5,7 +5,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="id" property="id" jdbcType="VARCHAR" />
     <result column="send_user_id" property="sendUserId" jdbcType="VARCHAR" />
     <result column="accept_user_id" property="acceptUserId" jdbcType="VARCHAR" />
     <result column="request_date_time" property="requestDateTime" jdbcType="TIMESTAMP" />

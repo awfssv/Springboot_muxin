@@ -1,23 +1,22 @@
 package com.mexbo.pojo;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 
 public class Users {
-    @Id
     private String id;
 
     /**
-     * ç”¨æˆ·åï¼Œè´¦å·ï¼Œæ…•ä¿¡å·
+     * 用户名，账号，慕信号
      */
     private String username;
 
     /**
-     * å¯†ç 
+     * 密码
      */
     private String password;
 
     /**
-     * æˆ‘çš„å¤´åƒï¼Œå¦‚æžœæ²¡æœ‰é»˜è®¤ç»™ä¸€å¼ 
+     * 我的头像，如果没有默认给一张
      */
     @Column(name = "face_image")
     private String faceImage;
@@ -26,12 +25,12 @@ public class Users {
     private String faceImageBig;
 
     /**
-     * æ˜µç§°
+     * 昵称
      */
     private String nickname;
 
     /**
-     * æ–°ç”¨æˆ·æ³¨å†ŒåŽé»˜è®¤åŽå°ç”ŸæˆäºŒç»´ç ï¼Œå¹¶ä¸”ä¸Šä¼ åˆ°fastdfs
+     * 新用户注册后默认后台生成二维码，并且上传到fastdfs
      */
     private String qrcode;
 
@@ -52,54 +51,54 @@ public class Users {
     }
 
     /**
-     * 获取ç”¨æˆ·åï¼Œè´¦å·ï¼Œæ…•ä¿¡å·
+     * 获取用户名，账号，慕信号
      *
-     * @return username - ç”¨æˆ·åï¼Œè´¦å·ï¼Œæ…•ä¿¡å·
+     * @return username - 用户名，账号，慕信号
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * 设置ç”¨æˆ·åï¼Œè´¦å·ï¼Œæ…•ä¿¡å·
+     * 设置用户名，账号，慕信号
      *
-     * @param username ç”¨æˆ·åï¼Œè´¦å·ï¼Œæ…•ä¿¡å·
+     * @param username 用户名，账号，慕信号
      */
     public void setUsername(String username) {
         this.username = username;
     }
 
     /**
-     * 获取å¯†ç 
+     * 获取密码
      *
-     * @return password - å¯†ç 
+     * @return password - 密码
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * 设置å¯†ç 
+     * 设置密码
      *
-     * @param password å¯†ç 
+     * @param password 密码
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     * 获取æˆ‘çš„å¤´åƒï¼Œå¦‚æžœæ²¡æœ‰é»˜è®¤ç»™ä¸€å¼ 
+     * 获取我的头像，如果没有默认给一张
      *
-     * @return face_image - æˆ‘çš„å¤´åƒï¼Œå¦‚æžœæ²¡æœ‰é»˜è®¤ç»™ä¸€å¼ 
+     * @return face_image - 我的头像，如果没有默认给一张
      */
     public String getFaceImage() {
         return faceImage;
     }
 
     /**
-     * 设置æˆ‘çš„å¤´åƒï¼Œå¦‚æžœæ²¡æœ‰é»˜è®¤ç»™ä¸€å¼ 
+     * 设置我的头像，如果没有默认给一张
      *
-     * @param faceImage æˆ‘çš„å¤´åƒï¼Œå¦‚æžœæ²¡æœ‰é»˜è®¤ç»™ä¸€å¼ 
+     * @param faceImage 我的头像，如果没有默认给一张
      */
     public void setFaceImage(String faceImage) {
         this.faceImage = faceImage;
@@ -120,36 +119,36 @@ public class Users {
     }
 
     /**
-     * 获取æ˜µç§°
+     * 获取昵称
      *
-     * @return nickname - æ˜µç§°
+     * @return nickname - 昵称
      */
     public String getNickname() {
         return nickname;
     }
 
     /**
-     * 设置æ˜µç§°
+     * 设置昵称
      *
-     * @param nickname æ˜µç§°
+     * @param nickname 昵称
      */
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 
     /**
-     * 获取æ–°ç”¨æˆ·æ³¨å†ŒåŽé»˜è®¤åŽå°ç”ŸæˆäºŒç»´ç ï¼Œå¹¶ä¸”ä¸Šä¼ åˆ°fastdfs
+     * 获取新用户注册后默认后台生成二维码，并且上传到fastdfs
      *
-     * @return qrcode - æ–°ç”¨æˆ·æ³¨å†ŒåŽé»˜è®¤åŽå°ç”ŸæˆäºŒç»´ç ï¼Œå¹¶ä¸”ä¸Šä¼ åˆ°fastdfs
+     * @return qrcode - 新用户注册后默认后台生成二维码，并且上传到fastdfs
      */
     public String getQrcode() {
         return qrcode;
     }
 
     /**
-     * 设置æ–°ç”¨æˆ·æ³¨å†ŒåŽé»˜è®¤åŽå°ç”ŸæˆäºŒç»´ç ï¼Œå¹¶ä¸”ä¸Šä¼ åˆ°fastdfs
+     * 设置新用户注册后默认后台生成二维码，并且上传到fastdfs
      *
-     * @param qrcode æ–°ç”¨æˆ·æ³¨å†ŒåŽé»˜è®¤åŽå°ç”ŸæˆäºŒç»´ç ï¼Œå¹¶ä¸”ä¸Šä¼ åˆ°fastdfs
+     * @param qrcode 新用户注册后默认后台生成二维码，并且上传到fastdfs
      */
     public void setQrcode(String qrcode) {
         this.qrcode = qrcode;

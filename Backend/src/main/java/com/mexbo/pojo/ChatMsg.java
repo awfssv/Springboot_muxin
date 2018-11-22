@@ -1,11 +1,11 @@
 package com.mexbo.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "chat_msg")
 public class ChatMsg {
-    @Id
     private String id;
 
     @Column(name = "send_user_id")
@@ -17,16 +17,16 @@ public class ChatMsg {
     private String msg;
 
     /**
-     * æ¶ˆæ¯æ˜¯å¦ç­¾æ”¶çŠ¶æ€
-1ï¼šç­¾æ”¶
-0ï¼šæœªç­¾æ”¶
+     * 消息是否签收状态
+     1：签收
+     0：未签收
 
      */
     @Column(name = "sign_flag")
     private Integer signFlag;
 
     /**
-     * å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * 发送请求的事件
      */
     @Column(name = "create_time")
     private Date createTime;
@@ -88,29 +88,28 @@ public class ChatMsg {
     }
 
     /**
-     * 获取æ¶ˆæ¯æ˜¯å¦ç­¾æ”¶çŠ¶æ€
-1ï¼šç­¾æ”¶
-0ï¼šæœªç­¾æ”¶
+     * 获取消息是否签收状态
+     1：签收
+     0：未签收
 
      *
-     * @return sign_flag - æ¶ˆæ¯æ˜¯å¦ç­¾æ”¶çŠ¶æ€
-1ï¼šç­¾æ”¶
-0ï¼šæœªç­¾æ”¶
+     * @return sign_flag - 消息是否签收状态
+    1：签收
+    0：未签收
 
      */
     public Integer getSignFlag() {
         return signFlag;
     }
-
     /**
-     * 设置æ¶ˆæ¯æ˜¯å¦ç­¾æ”¶çŠ¶æ€
-1ï¼šç­¾æ”¶
-0ï¼šæœªç­¾æ”¶
+     * 设置消息是否签收状态
+     1：签收
+     0：未签收
 
      *
-     * @param signFlag æ¶ˆæ¯æ˜¯å¦ç­¾æ”¶çŠ¶æ€
-1ï¼šç­¾æ”¶
-0ï¼šæœªç­¾æ”¶
+     * @param signFlag 消息是否签收状态
+    1：签收
+    0：未签收
 
      */
     public void setSignFlag(Integer signFlag) {
@@ -118,18 +117,18 @@ public class ChatMsg {
     }
 
     /**
-     * 获取å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * 获取发送请求的事件
      *
-     * @return create_time - å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * @return create_time - 发送请求的事件
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     * 设置å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * 设置发送请求的事件
      *
-     * @param createTime å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * @param createTime 发送请求的事件
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;

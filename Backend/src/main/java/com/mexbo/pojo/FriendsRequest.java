@@ -1,11 +1,11 @@
 package com.mexbo.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "friends_request")
 public class FriendsRequest {
-    @Id
     private String id;
 
     @Column(name = "send_user_id")
@@ -15,7 +15,7 @@ public class FriendsRequest {
     private String acceptUserId;
 
     /**
-     * å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * 发送请求的事件
      */
     @Column(name = "request_date_time")
     private Date requestDateTime;
@@ -63,18 +63,18 @@ public class FriendsRequest {
     }
 
     /**
-     * 获取å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * 获取发送请求的事件
      *
-     * @return request_date_time - å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * @return request_date_time - 发送请求的事件
      */
     public Date getRequestDateTime() {
         return requestDateTime;
     }
 
     /**
-     * 设置å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * 设置发送请求的事件
      *
-     * @param requestDateTime å‘é€è¯·æ±‚çš„äº‹ä»¶
+     * @param requestDateTime 发送请求的事件
      */
     public void setRequestDateTime(Date requestDateTime) {
         this.requestDateTime = requestDateTime;

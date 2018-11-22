@@ -5,7 +5,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="id" property="id" jdbcType="VARCHAR" />
     <result column="my_user_id" property="myUserId" jdbcType="VARCHAR" />
     <result column="my_friend_user_id" property="myFriendUserId" jdbcType="VARCHAR" />
   </resultMap>

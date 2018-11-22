@@ -1,20 +1,20 @@
 package com.mexbo.pojo;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
 @Table(name = "my_friends")
 public class MyFriends {
-    @Id
     private String id;
 
     /**
-     * ç”¨æˆ·id
+     * 用户id
      */
     @Column(name = "my_user_id")
     private String myUserId;
 
     /**
-     * ç”¨æˆ·çš„å¥½å‹id
+     * 用户的好友id
      */
     @Column(name = "my_friend_user_id")
     private String myFriendUserId;
@@ -34,36 +34,36 @@ public class MyFriends {
     }
 
     /**
-     * 获取ç”¨æˆ·id
+     * 获取用户id
      *
-     * @return my_user_id - ç”¨æˆ·id
+     * @return my_user_id - 用户id
      */
     public String getMyUserId() {
         return myUserId;
     }
 
     /**
-     * 设置ç”¨æˆ·id
+     * 设置用户id
      *
-     * @param myUserId ç”¨æˆ·id
+     * @param myUserId 用户id
      */
     public void setMyUserId(String myUserId) {
         this.myUserId = myUserId;
     }
 
     /**
-     * 获取ç”¨æˆ·çš„å¥½å‹id
+     * 获取用户的好友id
      *
-     * @return my_friend_user_id - ç”¨æˆ·çš„å¥½å‹id
+     * @return my_friend_user_id - 用户的好友id
      */
     public String getMyFriendUserId() {
         return myFriendUserId;
     }
 
     /**
-     * 设置ç”¨æˆ·çš„å¥½å‹id
+     * 设置用户的好友id
      *
-     * @param myFriendUserId ç”¨æˆ·çš„å¥½å‹id
+     * @param myFriendUserId 用户的好友id
      */
     public void setMyFriendUserId(String myFriendUserId) {
         this.myFriendUserId = myFriendUserId;
