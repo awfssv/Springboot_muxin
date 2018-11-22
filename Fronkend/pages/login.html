@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/mui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/registLogin/util.css">
+		<link rel="stylesheet" type="text/css" href="../css/registLogin/main.css">
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<style>
+			.p-t-85 {
+				padding-top: 10px;
+			}
+			
+			.p-b-70 {
+				padding-bottom: 35px;
+			}
+			
+			.m-t-85 {
+				margin-top: 15px;
+			}
+			
+			.container-login100 {
+				padding: 25px;
+			}
+			/*toast信息提示*/
+			
+			.mui-toast-container {
+				bottom: 50% !important;
+			}
+			.mui-toast-message {
+				opacity: 0.6;
+				color: #fff;
+				width: 180px;
+				padding: 70px 5px 10px 5px;
+			}
+			</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="container-login100">
+				<div class="wrap-login100 p-t-85 p-b-20">
+					<form id="userform">
+						<span class="login100-form-title p-b-70">
+							<h5>Netty</h5>
+						</span>
+						<span class="login100-form-avatar">
+							<img id="img_login_face" src="../css/registLogin/arrow.jpg" alt="风间影月">
+						</span>
+
+						<div class="wrap-input100 validate-input m-t-85 m-b-35">
+							<input class="input100" type="text" id="username" name="username" placeholder="用户名">
+							<span class="focus-input100"></span>
+						</div>
+
+						<div class="wrap-input100 validate-input m-b-50">
+							<input class="input100" type="password" id="txt_password" name="password" placeholder="密码">
+							<span class="focus-input100"></span>
+						</div>
+						<div class="container-login100-form-btn">
+							<button type="submit" id="registOrLogin" class="login100-form-btn">
+								登录/注册
+							</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			mui.plusReady(function() {
+
+			})
+		</script>
+	</body>
+
+</html>
