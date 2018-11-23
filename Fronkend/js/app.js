@@ -12,7 +12,7 @@ window.app = {
 	/**
 	 * 图片服务器的url地址
 	 */
-	//imgServerUrl: 'http://192.168.43.185:88/imooc/',
+	imgServerUrl: 'http://192.168.43.185:88/imooc/',
 	
 	isNotNull: function(str) {
 		if (str != null && str != "" && str != undefined) {

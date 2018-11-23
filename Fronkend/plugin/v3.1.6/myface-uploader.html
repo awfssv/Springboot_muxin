@@ -81,7 +81,7 @@
 						// 上传头像
 						var user = app.getUserGlobalInfo();
 						// 与后端联调
-						mui.ajax(app.serverUrl + "/u/uploadFaceBase64",{
+						mui.ajax(app.serverUrl + "/User/uploadFaceBase64",{
 							data:{
 								userId:user.id,
 								faceData:base64Url
@@ -99,7 +99,7 @@
 									app.setUserGlobalInfo(userInfo);
 									
 									// 触发另外一个webview的自定义事件，可以使用 mui.fire()
-									var imooc_meWebview = plus.webview.getWebviewById("imooc-me.html");
+									var imooc_meWebview = plus.webview.getWebviewById("about_me.html");
 									mui.fire(imooc_meWebview, "refresh");
 									
 									// 触发另外一个webview的自定义事件，可以使用 mui.fire()
@@ -107,7 +107,7 @@
 									mui.fire(myfaceWebview, "refresh");
 									
 									// 页面跳转
-									mui.openWindow("index.html", "index.html");
+									mui.openWindow("../../index.html", "index.html");
 								} else {
 									app.showToast(data.msg, "error");
 								}

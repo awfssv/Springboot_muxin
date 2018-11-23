@@ -62,40 +62,64 @@ CREATE TABLE `users` (
 
 ## Docker安装fastdfs  
 
-<details><summary>安装过程</summary>
+<details><summary>安装过程</summary>  
 
 
-* 下载fastdfs镜像，这里选择mypjb/fastdfs  
+* 拉取镜像
 ```
-docker pull mypjb/fastdfs
+docker pull morunchang/fastdfs
 ```
-* 创建宿主机保存fastdfs文件目录  
+* 运行tracker
 ```
-mkdir /home/fastdfs
+docker run -d --name tracker --net=host morunchang/fastdfs sh tracker.sh
 ```
-* 执行命令运行fastdfs容器  
+* 运行storage
+```
+docker run -d --name storage --net=host -e TRACKER_IP=<your tracker server address>:22122 -e GROUP_NAME=<group name> morunchang/fastdfs sh storage.sh
+```
+> `Nginx`端口应该是默认映射为`8080`吧  
+  1. 使用的网络模式是–net=host,  `<your tracker server address>` 替换为你机器的Ip即可  
+  2. `<group name>` 是组名，即storage的组  
+  3. 如果想要增加新的storage服务器，再次运行该命令，注意更换 新组名
+运行完后会自动进入容器内部，输入【exit】退出容器内部   
+  4. docker ps 查看容器信息 
+  ```
+  [root@iZh3cshm0xz7wjZ ~]# docker ps 
+  CONTAINER ID        IMAGE                COMMAND             CREATED              STATUS              PORTS               NAMES
+  ccdf6bbeab48        morunchang/fastdfs   "sh storage.sh"     5 seconds ago        Up 4 seconds                            storage
+  a7253c93bce1        morunchang/fastdfs   "sh tracker.sh"     About a minute ago   Up About a minute                       tracker
+```
+* 修改nginx的配置，不拦截上传内容
+```
+//1.进入容器内部
+docker exec -it storage  /bin/bash
 
-将下面的【192.168.1.1】替换成自己机器的ip即可
-```
-docker run --add-host fastdfs.net:192.168.1.1 --name fastdfs --net=host -e TRACKER_ENABLE=1 -e NGINX_PORT=81 -v /home/fastdfs:/storage/fastdfs -it mypjb/fastdfs
-```
-> `Nginx`端口设置为`81`  
-> 主机`/home/fastdfs`目录映射到容器`/storage/fastdfs`目录
+ // storage 是 docker ps 中的NAMES
+ // exit 退出
 
-运行完后会自动进入容器内部，输入【exit】退出容器内部  
-* 重启fastdfs容器
+root@iZh3cshm0xz7wjZ:/# cd data
+root@iZh3cshm0xz7wjZ:/data# ls
+fast_data  fastdfs  fastdfs-nginx-module  libfastcommon  nginx  nginx-1.9.11.tar.gz
+
+//2.修改nginx配置文件
+root@iZh3cshm0xz7wjZ:/# vi /data/nginx/conf/nginx.conf
+
+//3. 添加修改内容
+location /group1/M00 {
+   proxy_next_upstream http_502 http_504 error timeout invalid_header;
+     proxy_cache http-cache;
+     proxy_cache_valid  200 304 12h;
+     proxy_cache_key $uri$is_args$args;
+     proxy_pass http://fdfs_group1;
+     expires 30d;
+ }
+
+//4.退出
+root@iZh3cshm0xz7wjZ:/data/nginx/conf# exit
+exit
+
+//5. 重启storage服务
+[root@iZh3cshm0xz7wjZ ~]# docker restart storage
+storage
 ```
-docker restart fastdfs
-```
-* 开放81端口
-如果是阿里云就去控制台开放端口也可以
-```
-firewall-cmd --zone=public --add-port=81/tcp --permanent;firewall-cmd --reload;
-```
-* 测试是否安装成功  
-随便找个jpg文件，重命名为【wKgByFmn1iGAUsF1AAL4cszpkW0032.jpg】，上传至【/home/fastdfs/data/00/00】文件夹中，在浏览器中输入： 
-```
-http://192.168.1.1:81/M00/00/00/wKgByFmn1iGAUsF1AAL4cszpkW0032.jpg 
-```
-如能打开则说明安装成功了。 
 </details>
