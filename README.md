@@ -1,8 +1,11 @@
 # Java仿微信全栈 高性能后台+移动客户端  
 
-### 前端：MUI H5+ 后端：Springboot netty mybatis  
+### 技术栈
+> 前端：MUI H5+  
+> 后端：Springboot netty mybatis  
+### 数据库
+<details><summary>数据表设计</summary> 
 
-### 数据库设计
 > Table structure for chat_msg
 ```sql
 DROP TABLE IF EXISTS `chat_msg`;
@@ -55,3 +58,4 @@ CREATE TABLE `users` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
+</details>
