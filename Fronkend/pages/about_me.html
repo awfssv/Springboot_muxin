@@ -9,10 +9,71 @@
 	</head>
 
 	<body>
-		<h1>About_me</h1>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a id="link_myface" href="javascript:;">
+						<span class="mui-pull-right mui-icon mui-icon-arrowright" style="line-height: 42px;color: lightgray;margin-left: 3px;"></span>
+						<img id="img_my_face" class="mui-media-object mui-pull-right" src="../images/face-default.jpg">
+						<div class="mui-media-body" style="line-height: 42px;font-size: 16px;">
+							头像
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a id="link_nickname" href="javascript:;">
+						<span class="mui-pull-right mui-icon mui-icon-arrowright" style="color: lightgray;margin-left: 3px;"></span>
+						<span id="span_nickname" class="mui-pull-right" style="color: gray;font-size: 14px;"></span>
+						<div class="mui-media-body">
+							昵称
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<span id="span_username" class="mui-pull-right" style="color: gray;font-size: 14px;"></span>
+						<div class="mui-media-body">
+							账号
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a id="link_my_qrcode" href="javascript:;">
+						<span class="mui-pull-right mui-icon mui-icon-arrowright" style="color: lightgray;margin-left: 3px;"></span>
+						<img class="mui-media-object mui-pull-right" src="../images/qrcode.png" style="max-width: 20px;height: 20px;">
+						<div class="mui-media-body">
+							我的二维码
+						</div>
+					</a>
+				</li>
+			</ul>
+
+			<br />
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media" style="text-align: center;">
+					<a id="link_logout" href="javascript:;">
+						<div class="mui-media-body">
+							退出登录
+						</div>
+					</a>
+				</li>
+			</ul>
+
+		</div>
 		<script src="../js/mui.js"></script>
+		<script src="../js/app.js"></script>
 		<script type="text/javascript">
 			mui.init()
+
+			mui.plusReady(function() {
+				// 用户退出
+				var link_logout = document.getElementById("link_logout");
+				link_logout.addEventListener("tap", function() {
+					app.userLogout();
+					mui.openWindow("login.html", "login.html");
+				});
+			});
 		</script>
 	</body>
 

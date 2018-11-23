@@ -7,7 +7,7 @@ window.app = {
 	/**
 	 * 后端服务发布的url地址
 	 */
-	serverUrl: 'http://192.168.43.185:8080',
+	serverUrl: 'http://192.168.3.71:8080',
 	
 	/**
 	 * 图片服务器的url地址
@@ -28,7 +28,7 @@ window.app = {
 	*/
 	showToast: function(msg, type) {
 		plus.nativeUI.toast(msg, 
-			{icon: "image/" + type + ".png", verticalAlign: "center"})
+			{icon: "../images/" + type + ".png", verticalAlign: "center"})
 	},
 	/**
 	* 保存用户的全局对象

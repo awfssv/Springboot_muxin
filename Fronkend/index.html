@@ -73,9 +73,6 @@
 				return false;
 			}
 			
-			// 对网络连接进行事件监听
-			netChangeSwitch();
-			
 			// 获取当前的webview对象
 			var indexWebview = plus.webview.currentWebview()
 			
@@ -106,37 +103,7 @@
 					}
 				}
 			})
-			
-			// 延时加载
-			setTimeout("initData()", "1000");
 		});
-		
-		// 监听网络状态更改
-		function netChangeSwitch(){
-			document.addEventListener("netchange", function(){
-				// 网络状态获取和判断
-				var connectionStatus = plus.networkinfo.getCurrentType();
-				if (connectionStatus != 0 && connectionStatus != 1) {
-					// 重新打开网络连接
-					var muxin_title = document.getElementById("muxin_title");
-					muxin_title.innerHTML = "<b>慕信</b>";
-				} else {
-					// 关闭网络连接
-					var muxin_title = document.getElementById("muxin_title");
-					muxin_title.innerHTML = "<b>慕信(未连接)</b>";
-				}
-			});
-		}
-		
-		// 预加载
-		function initData() {
-			var imooc_chatlist = plus.webview.getWebviewById("chatlist.html");
-			mui.fire(imooc_chatlist, "refresh");
-			
-			var imooc_me = plus.webview.getWebviewById("about_me.html");
-			mui.fire(imooc_me, "refresh");
-		}
-		
 	</script>
 	</body>
 </html>
