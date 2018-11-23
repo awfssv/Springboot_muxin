@@ -67,6 +67,19 @@
 			mui.init()
 
 			mui.plusReady(function() {
+
+				// 获得当前的webview，刷新当前用户信息
+				var meWebview = plus.webview.currentWebview();
+				meWebview.addEventListener("show", function() {
+					refreshUserInfo();
+				});
+				
+				// 页面跳转，我的头像
+				var link_myface = document.getElementById("link_myface");
+				link_myface.addEventListener("tap", function() {
+					mui.openWindow("myface.html", "myface.html");
+				});
+
 				// 用户退出
 				var link_logout = document.getElementById("link_logout");
 				link_logout.addEventListener("tap", function() {
@@ -74,6 +87,28 @@
 					mui.openWindow("login.html", "login.html");
 				});
 			});
+
+			function refreshUserInfo() {
+				var user = app.getUserGlobalInfo();
+				console.log(JSON.stringify(user))
+
+				if (user != null) {
+					var faceImage = user.faceImage;
+					var nickname = user.nickname;
+					var username = user.username;
+
+					var span_nickname = document.getElementById("span_nickname");
+					var span_username = document.getElementById("span_username");
+
+					span_nickname.innerHTML = nickname;
+					span_username.innerHTML = username;
+
+					if (app.isNotNull(faceImage)) {
+						var img_my_face = document.getElementById("img_my_face");
+						img_my_face.src = app.imgServerUrl + faceImage;
+					}
+				}
+			}
 		</script>
 	</body>
 
