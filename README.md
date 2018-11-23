@@ -3,6 +3,14 @@
 ## 技术栈
 > 前端：MUI H5+  
 > 后端：Springboot netty mybatis  
+
+## 仓库介绍
++ Backend  项目后端代码
++ Fronkend 项目前端代码
++ WebChat  测试netty的前端项目
++ spring-boot-fastDFS 测试fasdfs分布式文件服务的项目
++ springboot_mybatis  整合springboot和mybatis的项目
+
 ## 数据库
 <details><summary>数据表设计</summary> 
 
