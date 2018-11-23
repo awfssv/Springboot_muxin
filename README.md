@@ -64,17 +64,19 @@ CREATE TABLE `users` (
 
 <details><summary>安装过程</summary>
 
+
 * 下载fastdfs镜像，这里选择mypjb/fastdfs  
-```dockerfile
+```
 docker pull mypjb/fastdfs
 ```
 * 创建宿主机保存fastdfs文件目录  
-```dockerfile
+```
 mkdir /home/fastdfs
 ```
 * 执行命令运行fastdfs容器  
+
 将下面的【192.168.1.1】替换成自己机器的ip即可
-```dockerfile
+```
 docker run --add-host fastdfs.net:192.168.1.1 --name fastdfs --net=host -e TRACKER_ENABLE=1 -e NGINX_PORT=81 -v /home/fastdfs:/storage/fastdfs -it mypjb/fastdfs
 ```
 > `Nginx`端口设置为`81`  
@@ -82,17 +84,17 @@ docker run --add-host fastdfs.net:192.168.1.1 --name fastdfs --net=host -e TRACK
 
 运行完后会自动进入容器内部，输入【exit】退出容器内部  
 * 重启fastdfs容器
-```dockerfile
+```
 docker restart fastdfs
 ```
 * 开放81端口
 如果是阿里云就去控制台开放端口也可以
-```dockerfile
+```
 firewall-cmd --zone=public --add-port=81/tcp --permanent;firewall-cmd --reload;
 ```
 * 测试是否安装成功  
 随便找个jpg文件，重命名为【wKgByFmn1iGAUsF1AAL4cszpkW0032.jpg】，上传至【/home/fastdfs/data/00/00】文件夹中，在浏览器中输入： 
-```html
+```
 http://192.168.1.1:81/M00/00/00/wKgByFmn1iGAUsF1AAL4cszpkW0032.jpg 
 ```
 如能打开则说明安装成功了。 
