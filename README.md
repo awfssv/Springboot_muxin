@@ -131,8 +131,8 @@ exit
 storage
 ```
 通过spring-boot-fastDFS可以来测试是否安装好fastdfs，我参考的是这篇[博客](https://blog.csdn.net/lizhihaooo/article/details/79261388#commentsedit)  
-
 能上传文件，并通过网址访问就表示成功了
+![img](https://camo.githubusercontent.com/3815b3363efe399dba6c391f11a95218d60d559a/687474703a2f2f34372e3130372e3131332e34333a383038302f6d7578696e2f4d30302f30302f30302f72424135616c7634426e534145476256414143794c6b77714464593035372e706e67)
 </details>
 
 
